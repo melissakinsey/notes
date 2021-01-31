@@ -1,7 +1,7 @@
 // REQUIRE EXPRESS
 const express = require("express");
 const app = express();
-const fs = require('fs')
+const fs = require("fs")
 
 
 // ADD DATABASE
@@ -29,6 +29,13 @@ app.post("/api/notes", function (req, res) {
 });
 
 // SET UP API DELETE REQUEST
+app.delete("/api/notes/:id", function (req, res){
+    let id = req.params.id;
+    db.splice(id,1);
+    fs.writeFile('./db/db.json', JSON.stringify(db), () => {
+        res.status(200)
+    })
+})
 
 // CONSOLE.LOG MESSAGE TO CONFIRM SERVER IS RUNNING
 app.listen(port,()=>console.log(`Server running on port ${port} with update`))
