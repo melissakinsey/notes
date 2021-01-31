@@ -7,5 +7,7 @@
 			"path": "routes"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "routes"
+	}
 }

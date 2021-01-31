@@ -18,5 +18,12 @@ app.get("/api/notes", (request, respond) => {
     respond.json(db)
 })
 
+// SET UP API POST REQUEST
+app.post("/api.notes", (request, respond) => {
+    respond.json(db)
+})
+
+// SET UP API DELETE REQUEST
+
 // CONSOLE.LOG MESSAGE TO CONFIRM SERVER IS RUNNING
 app.listen(port,()=>console.log(`Server running on port ${port} with update`))
