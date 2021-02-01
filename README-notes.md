@@ -48,15 +48,19 @@ This app is hosted in a local server on port 3001.
 
 # USAGE
 
-sdv
+Enter a descriptive title so it's easy to find the right note when you need it. Type the text of your note beneath the title. A "Save" icon will appear in the top right corner of your screen. Click it to save your note. The title of the saved note will appear in the list at left. 
 
 # FEATURES
 
-'
+* Clean user interface
+* Simple navigation
+* Ability to save notes and store them in one place
+* Ability to delete notes you no longer need
 
 # TECHNICAL SPECS
 
-wvd
+App runs in any standard browser. It's deployed on Heroku. 
+
 
 # TESTS
 
