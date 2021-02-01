@@ -3,22 +3,34 @@ const express = require("express");
 const app = express();
 // REQUIRE fs TO WRITE TO FILE
 const fs = require("fs")
+const path = require("path")
+
 
 // ADD DATABASE
 const db = require("./db/db.json");
 
 // SET UP CROSS-ORIGIN RESOURCE SHARING
 // https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
-const cors = require("cors")
+//const cors = require("cors")
 
 // SET UP SERVER TO LISTEN ON PORT 3001
 let port = 3001;
-app.use(cors())
+//app.use(cors())
 app.use(express.json())
 
+app.use(express.static(__dirname + "/public/assets"))
+
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname + "/public/index.html"))
+})
+
+app.get("/notes", function (req, res) {
+    res.sendFile(path.join(__dirname + "/public/notes.html"))
+})
+
 // SET UP API GET (READ) REQUEST
-app.get("/api/notes", (request, respond) => {
-    respond.json(db)
+app.get("/api/notes", function (req, res) {
+    res.json(db)
 })
 
 // SET UP API POST (CREATE) REQUEST
@@ -40,7 +52,7 @@ app.post("/api/notes", function (req, res) {
 // db.splice RETAINS NOTE ID# WHEN NOTE OBJECT IS DELETED
 app.delete("/api/notes/:id", function (req, res){
     let id = req.params.id;
-    db.splice(id,1);
+    db.splice(id-1,1);
     fs.writeFile("./db/db.json", JSON.stringify(db), () => {
         res.status(200)
     })

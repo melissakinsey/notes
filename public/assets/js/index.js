@@ -137,7 +137,7 @@ const renderNoteList = (notes) => {
 
 // Attach ID number (index position) to each note
   notes.forEach((note,index) => {
-    const $li = create$li(note.title).data("id",index);
+    const $li = create$li(note.title).data({ ...note, "id": index+1 });
     noteListItems.push($li);
   });
 
