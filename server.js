@@ -14,7 +14,7 @@ const db = require("./db/db.json");
 //const cors = require("cors")
 
 // SET UP SERVER TO LISTEN ON PORT 3001
-let port = 3001;
+let PORT = process.env.PORT || 3001;
 //app.use(cors())
 app.use(express.json())
 
@@ -61,4 +61,4 @@ app.delete("/api/notes/:id", function (req, res){
 })
 
 // CONSOLE.LOG MESSAGE TO CONFIRM SERVER IS RUNNING
-app.listen(port,()=>console.log(`Server running on port ${port} with update`))
+app.listen(PORT,()=>console.log(`Server running on PORT ${PORT} with update`))
