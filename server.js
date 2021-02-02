@@ -18,7 +18,7 @@ let port = 3001;
 //app.use(cors())
 app.use(express.json())
 
-app.use(express.static(__dirname + "/public/assets"))
+app.use(express.static("public/assets"))
 
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname + "/public/index.html"))
@@ -49,12 +49,14 @@ app.post("/api/notes", function (req, res) {
 });
 
 // SET UP API DELETE REQUEST
-// db.splice RETAINS NOTE ID# WHEN NOTE OBJECT IS DELETED
+// Use "db.splice" to remove item from the array.
+// Syntax: array.splice(index, howmany) 
+// Below we're removing one item at position -1 in the array. Otherwise, the second-to-last item is removed. (See https://medium.com/javascript-in-plain-english/how-to-remove-a-specific-item-from-an-array-in-javascript-a49b108404c).
 app.delete("/api/notes/:id", function (req, res){
     let id = req.params.id;
     db.splice(id-1,1);
     fs.writeFile("./db/db.json", JSON.stringify(db), () => {
-        res.status(200)
+        res.status(200).send("ok")
     })
 })
 

@@ -7,12 +7,12 @@ const $noteList = $(".list-container .list-group");
 // activeNote is used to keep track of the note in the textarea
 // Declared host using port 3001 (port 3000 was already in use)
 let activeNote = {$noteText};
-let host = 'http://localhost:3001'
+//let host = 'http://localhost:3001'
 
 // A function for getting all notes from the db
 const getNotes = () => {
   return $.ajax({
-    url: `${host}/api/notes`,
+    url: `/api/notes`,
     method: "GET",
   });
 };
@@ -21,7 +21,7 @@ const getNotes = () => {
 // Each Ajax request must have a header specifying content type JSON
 const saveNote = (note) => {
   return $.ajax({
-    url: `${host}/api/notes`,
+    url: `/api/notes`,
     data: JSON.stringify(note),
     method: "POST",
     headers: {
@@ -33,7 +33,7 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: `${host}/api/notes/` + id,
+    url: `/api/notes/` + id,
     method: "DELETE",
   });
 };
