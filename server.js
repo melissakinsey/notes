@@ -40,7 +40,7 @@ app.get("/api/notes", function (req, res) {
 //  * "./db/db.json" tells file system where to write to (https://www.geeksforgeeks.org/node-js-fs-writefile-method/).
 // * JSON.stringify converts JS object into a JSON string.
 // * The response function is placed as a callback (passed as a parameter) within the writeFile function.
-// * Spread syntax (...) is used to update all request body properties except the id.
+// * Spread syntax (...) is used to expand the items in the request body array.
 app.post("/api/notes", function (req, res) {
     let id = db.push(req.body);
     fs.writeFile("./db/db.json", JSON.stringify(db), () => {
