@@ -1,4 +1,5 @@
-![readme-header](assets/readme-header.png)
+![header image](public/assets/readme-header.png)
+
 [![stars - readme-generator](https://img.shields.io/github/stars/melissakinsey/readme-generator?style=social)](https://github.com/melissakinsey/readme-generator)
 [![forks - readme-generator](https://img.shields.io/github/forks/melissakinsey/readme-generator?style=social)](https://github.com/melissakinsey/readme-generator)
 
